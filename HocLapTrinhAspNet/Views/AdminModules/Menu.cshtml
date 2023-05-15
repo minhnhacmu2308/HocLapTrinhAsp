@@ -1,0 +1,41 @@
+﻿
+<div id="layoutSidenav_nav">
+    @*   @{ var userInfomatiom = (QuanLyChamCong.Models.User)Session["USER"]; }*@
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <a class="nav-link" href="/AdminHome">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Bảng điều khiển
+                </a>
+                <div class="sb-sidenav-menu-heading">Quản lý</div>
+                <a class="nav-link" href="/AdminTypeFood/Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Course
+                </a>
+                <a class="nav-link" href="/AdminFood/Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                   Course Type
+                </a>
+                <a class="nav-link" href="/AdminMenu/Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                   Course Video
+                </a>
+                <a class="nav-link" href="/AdminBranch/Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                   Order
+                </a>
+                <a class="nav-link" href="/AdminNews/Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                   User
+                </a>
+
+                <a class="nav-link" href="/AdminCustomer/Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    News
+                </a>
+              
+            </div>
+        </div>
+    </nav>
+</div>

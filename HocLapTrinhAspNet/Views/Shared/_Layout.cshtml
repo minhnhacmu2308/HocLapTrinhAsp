@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Học lập trình</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="img\favicon.png">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css\normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css\main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="css\fontawesome-all.min.css">
+    <!-- Flat Icon CSS -->
+    <link rel="stylesheet" href="font\flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css\animate.min.css">
+    <!-- Popup CSS -->
+    <link rel="stylesheet" href="css\magnific-popup.css">
+    <!-- Meanmenu CSS -->
+    <link rel="stylesheet" href="css\meanmenu.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="vendor\OwlCarousel\owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor\OwlCarousel\owl.theme.default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Modernize js -->
+    <script src="js\modernizr-3.6.0.min.js"></script>
+</head>
+
+<body class="sticky-header">
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper">
+        <!-- Add your site or application content here -->
+        <!-- Header Area Start Here -->
+        @Html.Action("Header", "Modules");
+        <!-- Header Area End Here -->
+        @RenderBody()
+        <!-- Instagram End Here -->
+        <!-- Footer Area Start Here -->
+        @Html.Action("Footer", "Modules");
+        <!-- Footer Area End Here -->
+        <!-- Search Box Start Here -->
+        <div id="header-search" class="header-search">
+            <button type="button" class="close">×</button>
+            <form class="header-search-form">
+                <input type="search" value="" placeholder="Type here........">
+                <button type="submit" class="search-btn">
+                    <i class="flaticon-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <!-- Search Box End Here -->
+    </div>
+    <script src="js\jquery-3.3.1.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js\plugins.js"></script>
+    <!-- Popper js -->
+    <script src="js\popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- Owl Carousel js -->
+    <script src="vendor\OwlCarousel\owl.carousel.min.js"></script>
+    <!-- Popup js -->
+    <script src="js\jquery.magnific-popup.min.js"></script>
+    <!-- Images Loaded js -->
+    <script src="js\imagesloaded.pkgd.min.js"></script>
+    <!-- Isotop js -->
+    <script src="js\isotope.pkgd.min.js"></script>
+    <!-- Meanmenu js -->
+    <script src="js\jquery.meanmenu.min.js"></script>
+    <!-- Smooth Scroll js -->
+    <script src="js\jquery.smoothscroll.min.js"></script>
+    <!-- Main js -->
+    <script src="js\main.js"></script>
+
+</body>
+
+</html>

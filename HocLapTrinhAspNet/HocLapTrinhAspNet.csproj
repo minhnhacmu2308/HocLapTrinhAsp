@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F370DDD8-F990-4C34-8A3B-B25104BC08ED}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HocLapTrinhAspNet</RootNamespace>
+    <AssemblyName>HocLapTrinhAspNet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44359</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Admin\AdminAuthenticationController.cs" />
+    <Compile Include="Controllers\Admin\AdminHomeController.cs" />
+    <Compile Include="Controllers\Admin\AdminModulesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModulesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305151356096_new-db.cs" />
+    <Compile Include="Migrations\202305151356096_new-db.designer.cs">
+      <DependentUpon>202305151356096_new-db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseType.cs" />
+    <Compile Include="Models\CourseVideo.cs" />
+    <Compile Include="Models\HocLapTrinhDbContext.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorys\CourseRepository.cs" />
+    <Compile Include="Repositorys\CourseTypeRepository.cs" />
+    <Compile Include="Repositorys\CourseVideoRepository.cs" />
+    <Compile Include="Repositorys\NewsRepository.cs" />
+    <Compile Include="Repositorys\OrderRepository.cs" />
+    <Compile Include="Repositorys\RoleRepository.cs" />
+    <Compile Include="Repositorys\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\assets\demo\chart-area-demo.js" />
+    <Content Include="Content\Admin\assets\demo\chart-bar-demo.js" />
+    <Content Include="Content\Admin\assets\demo\chart-pie-demo.js" />
+    <Content Include="Content\Admin\assets\demo\datatables-demo.js" />
+    <Content Include="Content\Admin\assets\img\error-404-monochrome.svg" />
+    <Content Include="Content\Admin\css\styles.css" />
+    <Content Include="Content\Admin\js\datatables-simple-demo.js" />
+    <Content Include="Content\Admin\js\scripts.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\fontawesome-all.min.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\meanmenu.min.css" />
+    <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\font\flaticon.css" />
+    <Content Include="Content\font\Flaticon.svg" />
+    <Content Include="Content\img\about\about.jpg" />
+    <Content Include="Content\img\about\about.png" />
+    <Content Include="Content\img\about\about1.jpg" />
+    <Content Include="Content\img\about\about2.jpg" />
+    <Content Include="Content\img\about\sing.png" />
+    <Content Include="Content\img\blog\blog.jpg" />
+    <Content Include="Content\img\blog\blog1.jpg" />
+    <Content Include="Content\img\blog\blog10.jpg" />
+    <Content Include="Content\img\blog\blog100.jpg" />
+    <Content Include="Content\img\blog\blog101.jpg" />
+    <Content Include="Content\img\blog\blog102.jpg" />
+    <Content Include="Content\img\blog\blog103.jpg" />
+    <Content Include="Content\img\blog\blog104.jpg" />
+    <Content Include="Content\img\blog\blog105.jpg" />
+    <Content Include="Content\img\blog\blog106.jpg" />
+    <Content Include="Content\img\blog\blog107.jpg" />
+    <Content Include="Content\img\blog\blog108.jpg" />
+    <Content Include="Content\img\blog\blog109.jpg" />
+    <Content Include="Content\img\blog\blog11.jpg" />
+    <Content Include="Content\img\blog\blog110.jpg" />
+    <Content Include="Content\img\blog\blog111.jpg" />
+    <Content Include="Content\img\blog\blog112.jpg" />
+    <Content Include="Content\img\blog\blog113.jpg" />
+    <Content Include="Content\img\blog\blog114.jpg" />
+    <Content Include="Content\img\blog\blog115.jpg" />
+    <Content Include="Content\img\blog\blog116.jpg" />
+    <Content Include="Content\img\blog\blog117.jpg" />
+    <Content Include="Content\img\blog\blog118.jpg" />
+    <Content Include="Content\img\blog\blog119.jpg" />
+    <Content Include="Content\img\blog\blog12.jpg" />
+    <Content Include="Content\img\blog\blog120.jpg" />
+    <Content Include="Content\img\blog\blog121.jpg" />
+    <Content Include="Content\img\blog\blog122.jpg" />
+    <Content Include="Content\img\blog\blog123.jpg" />
+    <Content Include="Content\img\blog\blog124.jpg" />
+    <Content Include="Content\img\blog\blog125.jpg" />
+    <Content Include="Content\img\blog\blog126.jpg" />
+    <Content Include="Content\img\blog\blog127.jpg" />
+    <Content Include="Content\img\blog\blog128.jpg" />
+    <Content Include="Content\img\blog\blog129.jpg" />
+    <Content Include="Content\img\blog\blog13.jpg" />
+    <Content Include="Content\img\blog\blog130.jpg" />
+    <Content Include="Content\img\blog\blog131.jpg" />
+    <Content Include="Content\img\blog\blog132.jpg" />
+    <Content Include="Content\img\blog\blog133.jpg" />
+    <Content Include="Content\img\blog\blog134.jpg" />
+    <Content Include="Content\img\blog\blog135.jpg" />
+    <Content Include="Content\img\blog\blog136.jpg" />
+    <Content Include="Content\img\blog\blog137.jpg" />
+    <Content Include="Content\img\blog\blog138.jpg" />
+    <Content Include="Content\img\blog\blog139.jpg" />
+    <Content Include="Content\img\blog\blog14.jpg" />
+    <Content Include="Content\img\blog\blog140.jpg" />
+    <Content Include="Content\img\blog\blog141.jpg" />
+    <Content Include="Content\img\blog\blog142.jpg" />
+    <Content Include="Content\img\blog\blog143.jpg" />
+    <Content Include="Content\img\blog\blog144.jpg" />
+    <Content Include="Content\img\blog\blog145.jpg" />
+    <Content Include="Content\img\blog\blog146.jpg" />
+    <Content Include="Content\img\blog\blog147.jpg" />
+    <Content Include="Content\img\blog\blog149.jpg" />
+    <Content Include="Content\img\blog\blog15.jpg" />
+    <Content Include="Content\img\blog\blog150.jpg" />
+    <Content Include="Content\img\blog\blog151.jpg" />
+    <Content Include="Content\img\blog\blog152.jpg" />
+    <Content Include="Content\img\blog\blog153.jpg" />
+    <Content Include="Content\img\blog\blog154.jpg" />
+    <Content Include="Content\img\blog\blog155.jpg" />
+    <Content Include="Content\img\blog\blog156.jpg" />
+    <Content Include="Content\img\blog\blog158.jpg" />
+    <Content Include="Content\img\blog\blog159.jpg" />
+    <Content Include="Content\img\blog\blog16.jpg" />
+    <Content Include="Content\img\blog\blog160.jpg" />
+    <Content Include="Content\img\blog\blog161.jpg" />
+    <Content Include="Content\img\blog\blog162.jpg" />
+    <Content Include="Content\img\blog\blog163.jpg" />
+    <Content Include="Content\img\blog\blog164.jpg" />
+    <Content Include="Content\img\blog\blog165.jpg" />
+    <Content Include="Content\img\blog\blog166.jpg" />
+    <Content Include="Content\img\blog\blog167.jpg" />
+    <Content Include="Content\img\blog\blog168.jpg" />
+    <Content Include="Content\img\blog\blog169.jpg" />
+    <Content Include="Content\img\blog\blog17.jpg" />
+    <Content Include="Content\img\blog\blog170.jpg" />
+    <Content Include="Content\img\blog\blog171.jpg" />
+    <Content Include="Content\img\blog\blog172.jpg" />
+    <Content Include="Content\img\blog\blog173.jpg" />
+    <Content Include="Content\img\blog\blog174.jpg" />
+    <Content Include="Content\img\blog\blog175.jpg" />
+    <Content Include="Content\img\blog\blog176.jpg" />
+    <Content Include="Content\img\blog\blog177.jpg" />
+    <Content Include="Content\img\blog\blog178.jpg" />
+    <Content Include="Content\img\blog\blog179.jpg" />
+    <Content Include="Content\img\blog\blog18.jpg" />
+    <Content Include="Content\img\blog\blog180.jpg" />
+    <Content Include="Content\img\blog\blog181.jpg" />
+    <Content Include="Content\img\blog\blog182.jpg" />
+    <Content Include="Content\img\blog\blog183.jpg" />
+    <Content Include="Content\img\blog\blog184.jpg" />
+    <Content Include="Content\img\blog\blog185.jpg" />
+    <Content Include="Content\img\blog\blog186.jpg" />
+    <Content Include="Content\img\blog\blog187.jpg" />
+    <Content Include="Content\img\blog\blog188.jpg" />
+    <Content Include="Content\img\blog\blog189.jpg" />
+    <Content Include="Content\img\blog\blog19.jpg" />
+    <Content Include="Content\img\blog\blog190.jpg" />
+    <Content Include="Content\img\blog\blog191.jpg" />
+    <Content Include="Content\img\blog\blog192.jpg" />
+    <Content Include="Content\img\blog\blog193.jpg" />
+    <Content Include="Content\img\blog\blog194.jpg" />
+    <Content Include="Content\img\blog\blog195.jpg" />
+    <Content Include="Content\img\blog\blog196.jpg" />
+    <Content Include="Content\img\blog\blog197.jpg" />
+    <Content Include="Content\img\blog\blog198.jpg" />
+    <Content Include="Content\img\blog\blog199.jpg" />
+    <Content Include="Content\img\blog\blog2.jpg" />
+    <Content Include="Content\img\blog\blog20.jpg" />
+    <Content Include="Content\img\blog\blog200.jpg" />
+    <Content Include="Content\img\blog\blog201.jpg" />
+    <Content Include="Content\img\blog\blog202.jpg" />
+    <Content Include="Content\img\blog\blog203.jpg" />
+    <Content Include="Content\img\blog\blog204.jpg" />
+    <Content Include="Content\img\blog\blog205.jpg" />
+    <Content Include="Content\img\blog\blog206.jpg" />
+    <Content Include="Content\img\blog\blog207.jpg" />
+    <Content Include="Content\img\blog\blog208.jpg" />
+    <Content Include="Content\img\blog\blog209.jpg" />
+    <Content Include="Content\img\blog\blog21.jpg" />
+    <Content Include="Content\img\blog\blog210.jpg" />
+    <Content Include="Content\img\blog\blog211.jpg" />
+    <Content Include="Content\img\blog\blog212.jpg" />
+    <Content Include="Content\img\blog\blog213.jpg" />
+    <Content Include="Content\img\blog\blog214.jpg" />
+    <Content Include="Content\img\blog\blog215.jpg" />
+    <Content Include="Content\img\blog\blog216.jpg" />
+    <Content Include="Content\img\blog\blog217.jpg" />
+    <Content Include="Content\img\blog\blog218.jpg" />
+    <Content Include="Content\img\blog\blog219.jpg" />
+    <Content Include="Content\img\blog\blog22.jpg" />
+    <Content Include="Content\img\blog\blog220.jpg" />
+    <Content Include="Content\img\blog\blog221.jpg" />
+    <Content Include="Content\img\blog\blog222.jpg" />
+    <Content Include="Content\img\blog\blog23.jpg" />
+    <Content Include="Content\img\blog\blog24.jpg" />
+    <Content Include="Content\img\blog\blog25.jpg" />
+    <Content Include="Content\img\blog\blog26.jpg" />
+    <Content Include="Content\img\blog\blog27.jpg" />
+    <Content Include="Content\img\blog\blog28.jpg" />
+    <Content Include="Content\img\blog\blog29.jpg" />
+    <Content Include="Content\img\blog\blog3.jpg" />
+    <Content Include="Content\img\blog\blog30.jpg" />
+    <Content Include="Content\img\blog\blog31.jpg" />
+    <Content Include="Content\img\blog\blog32.jpg" />
+    <Content Include="Content\img\blog\blog33.jpg" />
+    <Content Include="Content\img\blog\blog34.jpg" />
+    <Content Include="Content\img\blog\blog35.jpg" />
+    <Content Include="Content\img\blog\blog36.jpg" />
+    <Content Include="Content\img\blog\blog37.jpg" />
+    <Content Include="Content\img\blog\blog38.jpg" />
+    <Content Include="Content\img\blog\blog39.jpg" />
+    <Content Include="Content\img\blog\blog4.jpg" />
+    <Content Include="Content\img\blog\blog40.jpg" />
+    <Content Include="Content\img\blog\blog41.jpg" />
+    <Content Include="Content\img\blog\blog42.jpg" />
+    <Content Include="Content\img\blog\blog43.jpg" />
+    <Content Include="Content\img\blog\blog44.jpg" />
+    <Content Include="Content\img\blog\blog45.jpg" />
+    <Content Include="Content\img\blog\blog46.jpg" />
+    <Content Include="Content\img\blog\blog47.jpg" />
+    <Content Include="Content\img\blog\blog48.jpg" />
+    <Content Include="Content\img\blog\blog49.jpg" />
+    <Content Include="Content\img\blog\blog5.jpg" />
+    <Content Include="Content\img\blog\blog50.jpg" />
+    <Content Include="Content\img\blog\blog51.jpg" />
+    <Content Include="Content\img\blog\blog52.jpg" />
+    <Content Include="Content\img\blog\blog53.jpg" />
+    <Content Include="Content\img\blog\blog54.jpg" />
+    <Content Include="Content\img\blog\blog55.jpg" />
+    <Content Include="Content\img\blog\blog56.jpg" />
+    <Content Include="Content\img\blog\blog57.jpg" />
+    <Content Include="Content\img\blog\blog58.jpg" />
+    <Content Include="Content\img\blog\blog59.jpg" />
+    <Content Include="Content\img\blog\blog6.jpg" />
+    <Content Include="Content\img\blog\blog60.jpg" />
+    <Content Include="Content\img\blog\blog61.jpg" />
+    <Content Include="Content\img\blog\blog62.jpg" />
+    <Content Include="Content\img\blog\blog63.jpg" />
+    <Content Include="Content\img\blog\blog64.jpg" />
+    <Content Include="Content\img\blog\blog65.jpg" />
+    <Content Include="Content\img\blog\blog66.jpg" />
+    <Content Include="Content\img\blog\blog67.jpg" />
+    <Content Include="Content\img\blog\blog68.jpg" />
+    <Content Include="Content\img\blog\blog69.jpg" />
+    <Content Include="Content\img\blog\blog7.jpg" />
+    <Content Include="Content\img\blog\blog70.jpg" />
+    <Content Include="Content\img\blog\blog71.jpg" />
+    <Content Include="Content\img\blog\blog72.jpg" />
+    <Content Include="Content\img\blog\blog73.jpg" />
+    <Content Include="Content\img\blog\blog74.jpg" />
+    <Content Include="Content\img\blog\blog75.jpg" />
+    <Content Include="Content\img\blog\blog76.jpg" />
+    <Content Include="Content\img\blog\blog77.jpg" />
+    <Content Include="Content\img\blog\blog78.jpg" />
+    <Content Include="Content\img\blog\blog79.jpg" />
+    <Content Include="Content\img\blog\blog8.jpg" />
+    <Content Include="Content\img\blog\blog80.jpg" />
+    <Content Include="Content\img\blog\blog81.jpg" />
+    <Content Include="Content\img\blog\blog82.jpg" />
+    <Content Include="Content\img\blog\blog83.jpg" />
+    <Content Include="Content\img\blog\blog84.jpg" />
+    <Content Include="Content\img\blog\blog85.jpg" />
+    <Content Include="Content\img\blog\blog86.jpg" />
+    <Content Include="Content\img\blog\blog87.jpg" />
+    <Content Include="Content\img\blog\blog88.jpg" />
+    <Content Include="Content\img\blog\blog89.jpg" />
+    <Content Include="Content\img\blog\blog9.jpg" />
+    <Content Include="Content\img\blog\blog90.jpg" />
+    <Content Include="Content\img\blog\blog91.jpg" />
+    <Content Include="Content\img\blog\blog92.jpg" />
+    <Content Include="Content\img\blog\blog93.jpg" />
+    <Content Include="Content\img\blog\blog94.jpg" />
+    <Content Include="Content\img\blog\blog95.jpg" />
+    <Content Include="Content\img\blog\blog96.jpg" />
+    <Content Include="Content\img\blog\blog97.jpg" />
+    <Content Include="Content\img\blog\blog98.jpg" />
+    <Content Include="Content\img\blog\blog99.jpg" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\figure\404.png" />
+    <Content Include="Content\img\figure\coming-soon.jpg" />
+    <Content Include="Content\img\figure\figure.jpg" />
+    <Content Include="Content\img\figure\figure1.jpg" />
+    <Content Include="Content\img\figure\figure2.jpg" />
+    <Content Include="Content\img\figure\figure3.jpg" />
+    <Content Include="Content\img\figure\figure4.jpg" />
+    <Content Include="Content\img\figure\figure5.jpg" />
+    <Content Include="Content\img\figure\figure6.jpg" />
+    <Content Include="Content\img\figure\figure7.jpg" />
+    <Content Include="Content\img\figure\figure8.jpg" />
+    <Content Include="Content\img\figure\figure9.jpg" />
+    <Content Include="Content\img\figure\quote.jpg" />
+    <Content Include="Content\img\figure\quote2.png" />
+    <Content Include="Content\img\figure\signature.png" />
+    <Content Include="Content\img\logo-dark.png" />
+    <Content Include="Content\img\logo-dark2.png" />
+    <Content Include="Content\img\logo-light.png" />
+    <Content Include="Content\img\logo-light2.png" />
+    <Content Include="Content\img\preloader.gif" />
+    <Content Include="Content\img\product\top-product2.jpg" />
+    <Content Include="Content\img\product\top-product3.jpg" />
+    <Content Include="Content\img\slider\slide11-1.jpg" />
+    <Content Include="Content\img\slider\slide11-2.jpg" />
+    <Content Include="Content\img\slider\slide11-3.jpg" />
+    <Content Include="Content\img\slider\slide12-1.jpg" />
+    <Content Include="Content\img\slider\slide12-2.jpg" />
+    <Content Include="Content\img\slider\slide12-3.jpg" />
+    <Content Include="Content\img\slider\slide12-4.jpg" />
+    <Content Include="Content\img\slider\slide13-1.jpg" />
+    <Content Include="Content\img\slider\slide2-1.jpg" />
+    <Content Include="Content\img\slider\slide2-2.jpg" />
+    <Content Include="Content\img\slider\slide2-3.jpg" />
+    <Content Include="Content\img\slider\slide3-1.jpg" />
+    <Content Include="Content\img\slider\slide3-2.jpg" />
+    <Content Include="Content\img\slider\slide3-3.jpg" />
+    <Content Include="Content\img\slider\slide5-1.jpg" />
+    <Content Include="Content\img\slider\slide6-1.jpg" />
+    <Content Include="Content\img\slider\slide6-2.jpg" />
+    <Content Include="Content\img\slider\slide6-3.jpg" />
+    <Content Include="Content\img\slider\slide7-1.jpg" />
+    <Content Include="Content\img\social-figure\social-figure1.jpg" />
+    <Content Include="Content\img\social-figure\social-figure10.jpg" />
+    <Content Include="Content\img\social-figure\social-figure11.jpg" />
+    <Content Include="Content\img\social-figure\social-figure12.jpg" />
+    <Content Include="Content\img\social-figure\social-figure13.jpg" />
+    <Content Include="Content\img\social-figure\social-figure14.jpg" />
+    <Content Include="Content\img\social-figure\social-figure15.jpg" />
+    <Content Include="Content\img\social-figure\social-figure16.jpg" />
+    <Content Include="Content\img\social-figure\social-figure17.jpg" />
+    <Content Include="Content\img\social-figure\social-figure18.jpg" />
+    <Content Include="Content\img\social-figure\social-figure19.jpg" />
+    <Content Include="Content\img\social-figure\social-figure2.jpg" />
+    <Content Include="Content\img\social-figure\social-figure20.jpg" />
+    <Content Include="Content\img\social-figure\social-figure21.jpg" />
+    <Content Include="Content\img\social-figure\social-figure22.jpg" />
+    <Content Include="Content\img\social-figure\social-figure23.jpg" />
+    <Content Include="Content\img\social-figure\social-figure24.jpg" />
+    <Content Include="Content\img\social-figure\social-figure25.jpg" />
+    <Content Include="Content\img\social-figure\social-figure26.jpg" />
+    <Content Include="Content\img\social-figure\social-figure27.jpg" />
+    <Content Include="Content\img\social-figure\social-figure28.jpg" />
+    <Content Include="Content\img\social-figure\social-figure29.jpg" />
+    <Content Include="Content\img\social-figure\social-figure3.jpg" />
+    <Content Include="Content\img\social-figure\social-figure30.jpg" />
+    <Content Include="Content\img\social-figure\social-figure31.jpg" />
+    <Content Include="Content\img\social-figure\social-figure32.jpg" />
+    <Content Include="Content\img\social-figure\social-figure33.jpg" />
+    <Content Include="Content\img\social-figure\social-figure34.jpg" />
+    <Content Include="Content\img\social-figure\social-figure35.jpg" />
+    <Content Include="Content\img\social-figure\social-figure36.jpg" />
+    <Content Include="Content\img\social-figure\social-figure37.jpg" />
+    <Content Include="Content\img\social-figure\social-figure38.jpg" />
+    <Content Include="Content\img\social-figure\social-figure39.jpg" />
+    <Content Include="Content\img\social-figure\social-figure4.jpg" />
+    <Content Include="Content\img\social-figure\social-figure40.jpg" />
+    <Content Include="Content\img\social-figure\social-figure41.jpg" />
+    <Content Include="Content\img\social-figure\social-figure42.jpg" />
+    <Content Include="Content\img\social-figure\social-figure43.jpg" />
+    <Content Include="Content\img\social-figure\social-figure44.jpg" />
+    <Content Include="Content\img\social-figure\social-figure45.jpg" />
+    <Content Include="Content\img\social-figure\social-figure46.jpg" />
+    <Content Include="Content\img\social-figure\social-figure47.jpg" />
+    <Content Include="Content\img\social-figure\social-figure48.jpg" />
+    <Content Include="Content\img\social-figure\social-figure49.jpg" />
+    <Content Include="Content\img\social-figure\social-figure5.jpg" />
+    <Content Include="Content\img\social-figure\social-figure50.jpg" />
+    <Content Include="Content\img\social-figure\social-figure51.jpg" />
+    <Content Include="Content\img\social-figure\social-figure52.jpg" />
+    <Content Include="Content\img\social-figure\social-figure53.jpg" />
+    <Content Include="Content\img\social-figure\social-figure54.jpg" />
+    <Content Include="Content\img\social-figure\social-figure55.jpg" />
+    <Content Include="Content\img\social-figure\social-figure56.jpg" />
+    <Content Include="Content\img\social-figure\social-figure57.jpg" />
+    <Content Include="Content\img\social-figure\social-figure58.jpg" />
+    <Content Include="Content\img\social-figure\social-figure59.jpg" />
+    <Content Include="Content\img\social-figure\social-figure6.jpg" />
+    <Content Include="Content\img\social-figure\social-figure60.jpg" />
+    <Content Include="Content\img\social-figure\social-figure61.jpg" />
+    <Content Include="Content\img\social-figure\social-figure62.jpg" />
+    <Content Include="Content\img\social-figure\social-figure63.jpg" />
+    <Content Include="Content\img\social-figure\social-figure64.jpg" />
+    <Content Include="Content\img\social-figure\social-figure65.jpg" />
+    <Content Include="Content\img\social-figure\social-figure66.jpg" />
+    <Content Include="Content\img\social-figure\social-figure67.jpg" />
+    <Content Include="Content\img\social-figure\social-figure68.jpg" />
+    <Content Include="Content\img\social-figure\social-figure69.jpg" />
+    <Content Include="Content\img\social-figure\social-figure7.jpg" />
+    <Content Include="Content\img\social-figure\social-figure70.jpg" />
+    <Content Include="Content\img\social-figure\social-figure71.jpg" />
+    <Content Include="Content\img\social-figure\social-figure8.jpg" />
+    <Content Include="Content\img\social-figure\social-figure9.jpg" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\js\isotope.pkgd.min.js" />
+    <Content Include="Content\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\js\jquery.countdown.min.js" />
+    <Content Include="Content\js\jquery.counterup.min.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.meanmenu.min.js" />
+    <Content Include="Content\js\jquery.smoothscroll.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\modernizr-3.6.0.min.js" />
+    <Content Include="Content\js\plugins.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\rainyday.min.js" />
+    <Content Include="Content\js\ResizeSensor.min.js" />
+    <Content Include="Content\js\theia-sticky-sidebar.min.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\vendor\OwlCarousel\owl.carousel.min.css" />
+    <Content Include="Content\vendor\OwlCarousel\owl.carousel.min.js" />
+    <Content Include="Content\vendor\OwlCarousel\owl.theme.default.min.css" />
+    <Content Include="Content\vendor\OwlCarousel\owl.video.play.png" />
+    <Content Include="Content\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\webfonts\fa-solid-900.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\font\Flaticon-1.eot" />
+    <Content Include="Content\font\Flaticon.eot" />
+    <Content Include="Content\font\Flaticon.ttf" />
+    <Content Include="Content\font\Flaticon.woff" />
+    <Content Include="Content\font\Flaticon.woff2" />
+    <Content Include="Content\webfonts\fa-brands-400-1.eot" />
+    <Content Include="Content\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\webfonts\fa-regular-400-1.eot" />
+    <Content Include="Content\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\webfonts\fa-solid-900-1.eot" />
+    <Content Include="Content\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\webfonts\fa-solid-900.woff2" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\AdminModules\Header.cshtml" />
+    <Content Include="Views\AdminModules\Footer.cshtml" />
+    <Content Include="Views\AdminModules\Menu.cshtml" />
+    <Content Include="Views\AdminAuthentication\Login.cshtml" />
+    <Content Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\Modules\Header.cshtml" />
+    <Content Include="Views\Modules\Footer.cshtml" />
+    <Content Include="Views\Modules\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202305151356096_new-db.resx">
+      <DependentUpon>202305151356096_new-db.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65383</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44359/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
