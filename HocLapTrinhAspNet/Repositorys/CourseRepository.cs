@@ -1,6 +1,7 @@
 ﻿using HocLapTrinhAspNet.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,11 @@ namespace HocLapTrinhAspNet.Repositorys
         {
             myDb.Courses.Add(course);
             myDb.SaveChanges();
+        }
+
+        public List<Course> GetAll()
+        {
+            return myDb.Courses.Include(x => x.CourseType).OrderByDescending(x => x.CourseId).ToList();
         }
 
         public void UpdateCourse(Course course)
@@ -36,6 +42,16 @@ namespace HocLapTrinhAspNet.Repositorys
         public Course GetCourseById(int courseId)
         {
             return myDb.Courses.Find(courseId);
+        }
+
+        public List<CourseVideo> GetVideoByCourse(int courseId)
+        {
+            return myDb.CourseVideos.Where(x => x.CourseId == courseId).ToList();
+        }
+
+        public List<Order> GetOrderByCourse(int courseId)
+        {
+            return myDb.Orders.Where(x => x.CourseId == courseId).ToList();
         }
     }
 }

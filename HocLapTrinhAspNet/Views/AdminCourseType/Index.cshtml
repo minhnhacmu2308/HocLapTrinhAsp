@@ -1,0 +1,156 @@
+﻿﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Danh sách loại khóa học</h1>
+        <div class="card mb-4">
+            <div class="card-header">
+                @if (ViewBag.Msg != null)
+                {
+                    if (ViewBag.Msg == "1")
+                    {
+                        <div class="alert alert-success">
+                            <strong>Thành công</strong>
+                        </div>
+                    }
+                    if (ViewBag.Msg == "2")
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Không thể xóa !</strong>
+                        </div>
+                    }
+                }
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalAdd">
+                    Thêm mới
+                </button>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead style="color:#0d6efd ">
+                        <tr style="background-color: darkgrey">
+                            <th>STT</th>
+                            <th>Tên</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var stt = 1;}
+                        @foreach (var item in ViewBag.List)
+                        {
+                            <tr>
+                                <td style="width:10px">@stt</td>
+                                <td>
+                                    @item.TypeName
+                                </td>
+                                <td>
+                                    @{
+                                        var idEx1 = "exampleModalLabel" + item.CourseTypeId;
+                                        var idModelDel = "exampleModalDel" + item.CourseTypeId;
+                                    }
+                                    <button style="width:100px" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#@idEx1">
+                                        Sửa
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#@idModelDel" style="width:100px" class="btn btn-danger"> Xóa</button>
+                                    <div class="modal fade" id="@idModelDel" tabindex="-1"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Bạn chắc chắn muốn xóa ?</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    Loại khóa học : @item.TypeName
+                                                    <form action="/AdminCourseType/Delete" method="post">
+                                                        <input type="hidden" class="form-control" id="id" name="CourseTypeId" value="@item.CourseTypeId">
+                                                        <div class="modal-footer" style="margin-top: 20px">
+                                                            <button style="width:100px" type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                Đóng
+                                                            </button>
+                                                            <button style="width:100px" type="submit" class="btn btn-danger"> Xóa</button>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            stt++;
+                            <!-- Modal Update-->
+                            <div class="modal fade" id="@idEx1" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cập nhật</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="/AdminCourseType/Update" class="register-form" id="register-form">
+                                                <input type="hidden" class="form-control" id="id" name="CourseTypeId" value="@item.CourseTypeId">
+                                                <div class="mb-3">
+                                                    <label for="category-film"
+                                                           class="col-form-label">Tên loại khóa học:</label>
+                                                    <input type="text" class="form-control" id="category-film" value="@item.TypeName" name="TypeName" required>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">
+                                                        Đóng
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="modal fade" id="exampleModalAdd" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/AdminCourseType/Add" class="register-form" id="register-form">
+                    <div class="mb-3">
+                        <label for="category-film"
+                               class="col-form-label">Tên loại khóa học:</label>
+                        <input type="text" class="form-control" id="category-film" name="TypeName" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">Lưu </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

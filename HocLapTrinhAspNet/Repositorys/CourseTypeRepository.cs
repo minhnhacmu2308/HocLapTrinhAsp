@@ -9,6 +9,14 @@ namespace HocLapTrinhAspNet.Repositorys
     public class CourseTypeRepository
     {
         HocLapTrinhDbContext myDb = new HocLapTrinhDbContext();
+        public List<CourseType> GetAll()
+        {
+            return myDb.CourseTypes.OrderByDescending(x => x.CourseTypeId).ToList();
+        }
+        public List<Course> GetCourseByType(int id)
+        {
+            return myDb.Courses.Where(x => x.CourseTypeId == id).ToList();
+        }
         public void AddCourseType(CourseType courseType)
         {
             myDb.CourseTypes.Add(courseType);
