@@ -16,6 +16,11 @@ namespace HocLapTrinhAspNet.Repositorys
             myDb.SaveChanges();
         }
 
+        public List<Course> GetAll()
+        {
+            return myDb.Courses.Include(x => x.CourseType).OrderByDescending(x => x.CourseId).ToList();
+        }
+
         public void UpdateCourse(Course course)
         {
             var obj = myDb.Courses.FirstOrDefault(x => x.CourseId == course.CourseId);
@@ -99,5 +104,14 @@ namespace HocLapTrinhAspNet.Repositorys
             return count;
         }
 
+        public List<CourseVideo> GetVideoByCourse(int courseId)
+        {
+            return myDb.CourseVideos.Where(x => x.CourseId == courseId).ToList();
+        }
+
+        public List<Order> GetOrderByCourse(int courseId)
+        {
+            return myDb.Orders.Where(x => x.CourseId == courseId).ToList();
+        }
     }
 }

@@ -3,12 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace HocLapTrinhAspNet.Repositorys
 {
     public class CourseVideoRepository
     {
         HocLapTrinhDbContext myDb = new HocLapTrinhDbContext();
+
+        public List<CourseVideo> GetAll()
+        {
+            return myDb.CourseVideos.Include(x => x.Course).OrderByDescending(x => x.CourseVideoId).ToList();
+        }
         public void AddCourseVideo(CourseVideo courseVideo)
         {
             myDb.CourseVideos.Add(courseVideo);

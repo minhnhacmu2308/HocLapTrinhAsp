@@ -18,6 +18,11 @@ namespace HocLapTrinhAspNet.Repositorys
             myDb.SaveChanges();
         }
 
+        public List<User> GetCusomer()
+        {
+            return myDb.Users.Where(x => x.RoleId == 2).ToList();
+        }
+
         public void UpdateUser(User user)
         {
             var obj = myDb.Users.FirstOrDefault(x => x.UserId == user.UserId);

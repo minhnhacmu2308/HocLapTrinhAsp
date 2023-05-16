@@ -9,10 +9,15 @@ namespace HocLapTrinhAspNet.Repositorys
     public class NewsRepository
     {
         HocLapTrinhDbContext myDb = new HocLapTrinhDbContext();
-          public void AddNews(News News)
+        public void AddNews(News News)
         {
             myDb.News.Add(News);
             myDb.SaveChanges();
+        }
+
+        public List<News> GetAll()
+        {
+            return myDb.News.OrderByDescending(x => x.NewsId).ToList();
         }
 
         public void UpdateNews(News News)
