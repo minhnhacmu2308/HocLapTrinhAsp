@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="single-blog-wrap-layout1">
+    <div class="single-blog-banner-layout1">
+        <div class="banner-img">
+            <img src="@ViewBag.course.Image" style="width:100% !important" alt="blog">
+        </div>
+        <div class="banner-content">
+            <div class="container">              
+                <h2 class="item-title">@ViewBag.course.Title</h2>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gutters-50">
+            <div class="col-lg-8">
+                <div class="single-blog-box-layout1">
+                    <div class="blog-details">
+                        @Html.Raw(ViewBag.course.Content)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

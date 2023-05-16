@@ -1,20 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "CourseAll";
+    ViewBag.Title = "SearchCourse";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="blog-wrap-layout9">
     <div class="container">
         <div class="section-heading-3">
-            <h2>Danh sách khoá học trong hệ thống  </h2>
-
+            <h2>Danh sách khoá học của từ khoá @ViewBag.Type </h2>
         </div>
-        @if (ViewBag.courses.Count == 0)
-        {
-            <p>Danh sách trống </p>
-        }
-        else
+        @if (ViewBag.courses.Count != 0)
         {
             <div class="row gutters-40 menu-list" id="no-equal-gallery">
                 @foreach (var item in ViewBag.courses)
@@ -59,7 +54,7 @@
                     @if (ViewBag.tag > 1)
                     {
                         int b = ViewBag.tag - 1;
-                        <li class=""><a href="/Course/CourseAll/@b">&lArr;</a></li>
+                        <li class=""><a href="/Course/SearchCourse/@ViewBag.Type/@b">&lArr;</a></li>
                     }
                     else
                     {
@@ -70,29 +65,33 @@
                     {
                         if (ViewBag.tag == i)
                         {
-                            <li class="active"><a href="/Course/CourseAll/@i">@i</a></li>
+                            <li class="active"><a href="/Course/SearchCourse/@ViewBag.Type/@i">@i</a></li>
                         }
                         else
                         {
-                            <li class=""><a href="/Course/CourseAll/@i">@i</a></li>
+                            <li class=""><a href="/Course/SearchCourse/@ViewBag.Type/@i">@i</a></li>
                         }
 
                     }
                     @if (ViewBag.tag < ViewBag.pageSize)
                     {
                         int a = ViewBag.tag + 1;
-                        <li class=""><a class="" href="/Course/CourseAll/@a">&rArr;</a></li>
+                        <li class=""><a class="" href="/Course/SearchCourse/@ViewBag.Type/@a">&rArr;</a></li>
                     }
                     else
                     {
                         <li></li>
                     }
+
+
+
                 </ul>
             </div>
         }
-
+        else
+        {
+            <p>Danh sách trống </p>}
     </div>
 </section>
-
 
 

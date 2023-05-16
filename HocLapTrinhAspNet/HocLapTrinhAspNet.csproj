@@ -138,6 +138,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1147,6 +1148,9 @@
     <Content Include="Views\Course\GetCourseByType.cshtml" />
     <Content Include="Views\Course\CourseAll.cshtml" />
     <Content Include="Views\Course\Detail.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Views\Course\SearchCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

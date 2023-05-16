@@ -113,5 +113,23 @@ namespace HocLapTrinhAspNet.Repositorys
         {
             return myDb.Orders.Where(x => x.CourseId == courseId).ToList();
         }
+
+        public List<Course> SearchCourse(string keySearch, int page, int pagesize)
+        {
+            return myDb.Courses.Include(x => x.CourseType).Include(x => x.CourseVideos).Where(x => x.CourseName.Contains(keySearch) || x.CourseType.TypeName.Contains(keySearch)).OrderByDescending(u => u.CourseId).ToList().
+               Skip((page - 1) * pagesize).Take(pagesize).ToList();
+        }
+
+        public int getNumberBySearch(string keySearch)
+        {
+            int total = myDb.Courses.Include(x => x.CourseType).Include(x => x.CourseVideos).Where(x => x.CourseName.Contains(keySearch) || x.CourseType.TypeName.Contains(keySearch)).ToList().Count;
+            int count = 0;
+            count = total / 6;
+            if (total % 6 != 0)
+            {
+                count++;
+            }
+            return count;
+        }
     }
 }

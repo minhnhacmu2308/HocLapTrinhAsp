@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "CourseAll";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="blog-wrap-layout9">
     <div class="container">
         <div class="section-heading-3">
-            <h2>Danh sách khoá học trong hệ thống  </h2>
+            <h2>Danh sách tin tức trong hệ thống  </h2>
 
         </div>
         @if (ViewBag.courses.Count == 0)
@@ -22,30 +22,18 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
                         <div class="blog-box-layout5">
                             <div class="item-img">
-                                <a href="/Course/Detail/@item.CourseId"><img src="~/Content/images/@item.Image" alt="Blog"></a>
-                                <a href="/Course/Detail/@item.CourseId" class="hover-icon">
+                                <a href="/News/Detail/@item.NewsId"><img src="~/Content/images/@item.Image" alt="Blog"></a>
+                                <a href="/News/Detail/@item.NewsId" class="hover-icon">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                 </a>
                             </div>
                             <div class="item-content">
-                                <ul class="entry-meta meta-color-dark">
-                                    <li><i class="fas fa-tag"></i>@item.CourseType.TypeName</li>
-                                    @if (item.IsFree)
-                                    {
-                                        <li><i class="fas fa-calendar-alt"></i>Miễn phí </li>
-                                    }
-                                    else
-                                    {
-                                        <li><i class="fas fa-calendar-alt"></i>Có phí</li>
-                                    }
-
-                                    <li><i class="far fa-clock"></i>@item.CourseVideos.Count </li>
-                                </ul>
+                               
                                 <h3 class="item-title">
-                                    <a href="/Course/Detail/@item.CourseId">
-                                        @item.CourseName
+                                    <a href="/News/Detail/@item.NewsId">
+                                        @item.Title
                                     </a>
                                 </h3>
                             </div>
@@ -59,7 +47,7 @@
                     @if (ViewBag.tag > 1)
                     {
                         int b = ViewBag.tag - 1;
-                        <li class=""><a href="/Course/CourseAll/@b">&lArr;</a></li>
+                        <li class=""><a href="/News/Index/@b">&lArr;</a></li>
                     }
                     else
                     {
@@ -70,18 +58,18 @@
                     {
                         if (ViewBag.tag == i)
                         {
-                            <li class="active"><a href="/Course/CourseAll/@i">@i</a></li>
+                            <li class="active"><a href="/News/Index/@i">@i</a></li>
                         }
                         else
                         {
-                            <li class=""><a href="/Course/CourseAll/@i">@i</a></li>
+                            <li class=""><a href="/News/Index/@i">@i</a></li>
                         }
 
                     }
                     @if (ViewBag.tag < ViewBag.pageSize)
                     {
                         int a = ViewBag.tag + 1;
-                        <li class=""><a class="" href="/Course/CourseAll/@a">&rArr;</a></li>
+                        <li class=""><a class="" href="/News/Index/@a">&rArr;</a></li>
                     }
                     else
                     {
@@ -93,6 +81,8 @@
 
     </div>
 </section>
+
+
 
 
 

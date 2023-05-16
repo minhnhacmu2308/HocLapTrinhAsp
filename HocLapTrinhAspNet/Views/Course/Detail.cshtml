@@ -3,11 +3,26 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (ViewBag.mess == "2")
+{
+    <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 40PX;z-index: 2000;width: 300px">
 
+        <script>
+            swal({
+                title: 'Mua khoá học thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    </div>
+}
 <section class="single-blog-wrap-layout1">
     <div class="single-blog-banner-layout1">
         <div class="banner-img">
-            <img src="@ViewBag.course.Image" style="width:100% !important" alt="blog">
+            <img src="~/Content/images/@ViewBag.course.Image" style="width:100% !important" alt="blog">
         </div>
         <div class="banner-content">
             <div class="container">
@@ -22,10 +37,10 @@
                         <li><i class="fas fa-calendar-alt"></i>Có phí</li>
                     }
 
-                <li><i class="far fa-clock"></i>@ViewBag.course.CourseVideos.Count </li>
+                    <li><i class="far fa-clock"></i>@ViewBag.course.CourseVideos.Count </li>
                 </ul>
                 <h2 class="item-title">@ViewBag.course.CourseName</h2>
-              
+
             </div>
         </div>
     </div>
@@ -36,7 +51,7 @@
                     <div class="blog-details">
                         @Html.Raw(ViewBag.course.Description)
                     </div>
-                
+
                 </div>
             </div>
             <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
@@ -117,13 +132,13 @@
                         </ul>
                     </div>
                     <div style="margin-top:10px">
-                        <button style="display: inline-block; padding: 10px 20px; background-color: black; color: #FFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
+                        <a class="btn" href="/Course/PaymentMoMo/@ViewBag.course.CourseId" style="display: inline-block; padding: 10px 20px; background-color: black; color: #FFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
                             Mua khoá học
-                        </button>
+                        </a>
                     </div>
-                   
+
                 </div>
-              
+
             </div>
         </div>
     </div>

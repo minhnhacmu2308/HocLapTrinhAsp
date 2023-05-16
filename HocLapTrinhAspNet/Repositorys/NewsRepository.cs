@@ -40,5 +40,22 @@ namespace HocLapTrinhAspNet.Repositorys
         {
             return myDb.News.Find(NewsId);
         }
+
+        public int getNumber()
+        {
+            int total = myDb.Courses.ToList().Count;
+            int count = 0;
+            count = total / 6;
+            if (total % 6 != 0)
+            {
+                count++;
+            }
+            return count;
+        }
+        public List<News> Gets(int page, int pagesize)
+        {
+            return myDb.News.OrderByDescending(u => u.NewsId).ToList().
+                Skip((page - 1) * pagesize).Take(pagesize).ToList();
+        }
     }
 }
