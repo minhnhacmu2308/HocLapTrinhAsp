@@ -1,13 +1,20 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "CourseAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="blog-wrap-layout9">
     <div class="container">
         <div class="section-heading-3">
-            <h2>Top 9 khoá học mới nhất </h2>
+            <h2>Danh sách khoá học trong hệ thống  </h2>
+
         </div>
-        @if (ViewBag.courses.Count != 0)
+        @if (ViewBag.courses.Count == 0)
+        {
+            <p>Danh sách trống </p>
+        }
+        else
         {
             <div class="row gutters-40 menu-list" id="no-equal-gallery">
                 @foreach (var item in ViewBag.courses)
@@ -47,43 +54,45 @@
                 }
 
             </div>
-            <div class="loadmore-btn-layout1">
-                <a href="Course/CourseAll/0" class="item-btn">Xem tất cả</a>
+            <div class="pagination-layout1">
+                <ul>
+                    @if (ViewBag.tag > 1)
+                    {
+                        int b = ViewBag.tag - 1;
+                        <li class=""><a href="/Course/CourseAll/@b">&lArr;</a></li>
+                    }
+                    else
+                    {
+                        <li></li>
+                    }
+
+                    @for (var i = 1; i <= ViewBag.pageSize; i++)
+                    {
+                        if (ViewBag.tag == i)
+                        {
+                            <li class="active"><a href="/Course/CourseAll/@i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li class=""><a href="/Course/CourseAll/@i">@i</a></li>
+                        }
+
+                    }
+                    @if (ViewBag.tag < ViewBag.pageSize)
+                    {
+                        int a = ViewBag.tag + 1;
+                        <li class=""><a class="" href="/Course/CourseAll/@a">&rArr;</a></li>
+                    }
+                    else
+                    {
+                        <li></li>
+                    }
+                </ul>
             </div>
         }
-        else
-        {
-            <p>Danh sách trống </p>}
+
     </div>
 </section>
-<!-- Blog Area End Here -->
-<!-- Instagram Start Here -->
-<section class="instagram-feed-wrap-1">
-    <div class="instagram-feed-title-1"><a href="#"><i class="fab fa-instagram"></i>FOLLOW US ON INSTAGRAM</a></div>
-    <ul class="instagram-feed-figure-1">
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure39.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure40.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure41.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure42.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure43.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure44.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure45.jpg" alt="Social"></a>
-        </li>
-        <li>
-            <a href="#"><img src="~/Content\img\social-figure\social-figure46.jpg" alt="Social"></a>
-        </li>
-    </ul>
-</section>
+
+
+

@@ -130,6 +130,7 @@
     <Compile Include="Controllers\Admin\AdminAuthenticationController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Admin\AdminModulesController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -603,6 +604,10 @@
     <Content Include="Views\Modules\Header.cshtml" />
     <Content Include="Views\Modules\Footer.cshtml" />
     <Content Include="Views\Modules\Menu.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Course\GetCourseByType.cshtml" />
+    <Content Include="Views\Course\CourseAll.cshtml" />
+    <Content Include="Views\Course\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -31,7 +31,13 @@ namespace HocLapTrinhAspNet.Repositorys
 
         public CourseType GetCourseTypeById(int courseTypeId)
         {
-            return myDb.CourseTypes.Find(courseTypeId);
+            return myDb.CourseTypes.FirstOrDefault(x => x.CourseTypeId == courseTypeId);
+        }
+
+        //customer 
+        public List<CourseType> Gets()
+        {
+            return myDb.CourseTypes.ToList();
         }
     }
 }

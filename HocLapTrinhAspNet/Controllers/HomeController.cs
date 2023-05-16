@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HocLapTrinhAspNet.Repositorys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,10 @@ namespace HocLapTrinhAspNet.Controllers
 {
     public class HomeController : Controller
     {
+        CourseRepository courseRepository = new CourseRepository();
         public ActionResult Index()
         {
+            ViewBag.courses = courseRepository.GetTops();
             return View();
         }
 

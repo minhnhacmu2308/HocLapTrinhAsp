@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="single-blog-wrap-layout1">
+    <div class="single-blog-banner-layout1">
+        <div class="banner-img">
+            <img src="@ViewBag.course.Image" style="width:100% !important" alt="blog">
+        </div>
+        <div class="banner-content">
+            <div class="container">
+                <ul class="entry-meta meta-color-light2">
+                    <li><i class="fas fa-tag"></i>@ViewBag.course.CourseType.TypeName</li>
+                    @if (ViewBag.course.IsFree)
+                    {
+                        <li><i class="fas fa-calendar-alt"></i>Miễn phí </li>
+                    }
+                    else
+                    {
+                        <li><i class="fas fa-calendar-alt"></i>Có phí</li>
+                    }
+
+                <li><i class="far fa-clock"></i>@ViewBag.course.CourseVideos.Count </li>
+                </ul>
+                <h2 class="item-title">@ViewBag.course.CourseName</h2>
+              
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gutters-50">
+            <div class="col-lg-8">
+                <div class="single-blog-box-layout1">
+                    <div class="blog-details">
+                        @Html.Raw(ViewBag.course.Description)
+                    </div>
+                
+                </div>
+            </div>
+            <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
+                <div class="widget">
+                    <div class="section-heading heading-dark">
+                        <h3 class="item-heading">Danh sách video </h3>
+                    </div>
+                    <div class="widget-latest">
+                        <ul class="block-list">
+                            <li class="single-item">
+                                <div class="item-img">
+                                    <a href="#"><img src="~/Content/img/blog\blog85.jpg" alt="Post"></a>
+                                </div>
+                                <div class="item-content">
+                                    <ul class="entry-meta meta-color-dark">
+                                        <li><i class="fas fa-tag"></i>Weeding</li>
+                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    </ul>
+                                    <h4 class="item-title">
+                                        <a href="#">
+                                            Thought aful Living result are aert aos
+                                            Angeles
+                                        </a>
+                                    </h4>
+                                </div>
+                            </li>
+                            <li class="single-item">
+                                <div class="item-img">
+                                    <a href="#"><img src="~/Content/img/blog\blog86.jpg" alt="Post"></a>
+                                </div>
+                                <div class="item-content">
+                                    <ul class="entry-meta meta-color-dark">
+                                        <li><i class="fas fa-tag"></i>Flower</li>
+                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    </ul>
+                                    <h4 class="item-title">
+                                        <a href="#">
+                                            Type designer Jeremy Tanka rdoverhauls
+                                            online
+                                        </a>
+                                    </h4>
+                                </div>
+                            </li>
+                            <li class="single-item">
+                                <div class="item-img">
+                                    <a href="#"><img src="~/Content/img/blog\blog87.jpg" alt="Post"></a>
+                                </div>
+                                <div class="item-content">
+                                    <ul class="entry-meta meta-color-dark">
+                                        <li><i class="fas fa-tag"></i>Stage</li>
+                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    </ul>
+                                    <h4 class="item-title">
+                                        <a href="#">
+                                            5 design things to look out for in June
+                                            2019
+                                        </a>
+                                    </h4>
+                                </div>
+                            </li>
+                            <li class="single-item">
+                                <div class="item-img">
+                                    <a href="#"><img src="~/Content/img/blog\blog88.jpg" alt="Post"></a>
+                                </div>
+                                <div class="item-content">
+                                    <ul class="entry-meta meta-color-dark">
+                                        <li><i class="fas fa-tag"></i>Life Style</li>
+                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    </ul>
+                                    <h4 class="item-title">
+                                        <a href="#">
+                                            Marc Falzone opens £2 million UK Expo
+                                            Pavilion
+                                        </a>
+                                    </h4>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="margin-top:10px">
+                        <button style="display: inline-block; padding: 10px 20px; background-color: black; color: #FFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
+                            Mua khoá học
+                        </button>
+                    </div>
+                   
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>
+
