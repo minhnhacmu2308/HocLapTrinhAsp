@@ -4,6 +4,7 @@
     CourseTypeRepository courseTypeRepository = new CourseTypeRepository();
     List<CourseType> courseTypes = courseTypeRepository.Gets();
 }
+@{ var userInfomatiom = (HocLapTrinhAspNet.Models.User)Session["USER"]; }
 <header class="has-mobile-menu">
     <div id="header-middlebar" class="pt--29 pb--29 bg--light border-bootom border-color-accent2">
         <div class="container">
@@ -35,7 +36,7 @@
                                 <a href="#header-search" title="Search">
                                     <i class="flaticon-magnifying-glass"></i>
                                 </a>
-                            </li>                         
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -71,12 +72,35 @@
                                     </li>
                                     <li>
                                         <a href="/Course/Index/false/0">Có phí</a>
-                                    </li>                               
+                                    </li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="/News/Index/0">TIn tức</a>
                             </li>
+                              
+                            @if (userInfomatiom != null)
+                            {
+                                <li>
+                                    <a href="#">@userInfomatiom.FullName</a>
+                                    <ul class="dropdown-menu-col-1">
+                                        <li>
+                                            <a href="/Authentication/Profiles">Hồ sơ</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Authentication/Logout">Đăng xuất</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="/Authentication/Index">Đăng ký / Đăng nhập</a>
+                                </li>
+                            }
+
+
                         </ul>
                     </nav>
                 </div>

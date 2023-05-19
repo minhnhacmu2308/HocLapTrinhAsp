@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Navbar & Hero End -->
+<!-- Contact Start -->
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "1")
+    {
+        <script>
+            swal({
+                title: 'Đăng ký thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+    if (ViewBag.Msg == "2")
+    {
+        <script>
+            swal({
+                title: 'Email đã tồn tại !',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        </script>
+    }
+
+    if (ViewBag.Msg == "3")
+    {
+        <script>
+            swal({
+                title: 'Thông tin email hoặc mật khẩu không đúng !',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        </script>
+    }
+
+}
+<section class="blog-wrap-layout9">
+    <div class="container">
+        <div class="section-heading-3">
+            <h2>Đăng ký/ Đăng nhập</h2>
+        </div>
+        <div class="row gutters-50">
+            <div class="col-lg-7">
+                <div class="single-blog-box-layout1">
+                    <div class="blog-form">
+                        <div class="section-heading-4 heading-dark">
+                            <h3 class="item-heading">Đăng ký</h3>
+                        </div>
+                        <form class="contact-form-box" action="/Authentication/Register" method="post">
+                            <div class="row gutters-15">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" placeholder="Họ tên" class="form-control" name="FullName" required="">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="text" placeholder="Số điện thoại" class="form-control" name="PhoneNumber" required="">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="email" placeholder="Email" class="form-control" name="Email" required="">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="password" placeholder="Mật khẩu" class="form-control" name="Password" required="">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="text" placeholder="Địa chỉ" class="form-control" name="Address" required="">
+                                </div>
+                                <div class="col-12 form-group">
+                                    <button type="submit" class="item-btn">Đăng ký</button>
+                                </div>
+                            </div>
+                            <div class="form-response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="single-blog-box-layout1">
+                    <div class="blog-form">
+                        <div class="section-heading-4 heading-dark">
+                            <h3 class="item-heading">Đăng nhập</h3>
+                        </div>
+                        <form class="contact-form-box" action="/Authentication/Login" method="post">
+                            <div class="row gutters-15">
+                                <div class="col-md-12 form-group">
+                                    <input type="email" placeholder="Email" class="form-control" name="Email" required="">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="password" placeholder="Mật khẩu" class="form-control" name="Password" required="">
+                                </div>
+                                <div class="col-12 form-group">
+                                    <button type="submit" class="item-btn">Đăng nhập</button>
+                                </div>
+                            </div>
+                            <div class="form-response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
