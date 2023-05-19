@@ -72,5 +72,20 @@ namespace HocLapTrinhAspNet.Repositorys
         {
             return myDb.Users.Find(email);
         }
+
+        public User getUserByEmail(string email)
+        {
+            return myDb.Users.FirstOrDefault(x => x.Email.Equals(email));
+        }
+
+        public bool checkExistEmail(string email)
+        {
+            var user = myDb.Users.FirstOrDefault(x => x.Email == email);
+            if (user != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
