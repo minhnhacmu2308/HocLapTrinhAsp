@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ var userInfomatiom = (HocLapTrinhAspNet.Models.User)Session["USER"];
+}
+<section class="single-blog-wrap-layout1">
+    <section class="single-blog-wrap-layout2">
+        <div class="container">
+            <div class="single-blog-box-layout2">
+                <div class="blog-banner">
+                    <img src="~/Content/images/@ViewBag.course.Image" alt="blog" style=" width: 100% !important; height: 450px !important;">
+                </div>
+                <div class="single-blog-content">
+                    <div class="blog-entry-content">
+                        <ul class="entry-meta meta-color-dark">
+                            <li><i class="fas fa-tag"></i>@ViewBag.course.CourseType.TypeName</li>
+                            @if (ViewBag.course.IsFree)
+                            {
+                                <li><i class="fas fa-calendar-alt"></i>Miễn phí </li>
+                            }
+                            else
+                            {
+                                <li><i class="fas fa-calendar-alt"></i>Có phí</li>
+                            }
+
+                            <li><i class="far fa-clock"></i>@ViewBag.course.CourseName </li>
+                        </ul>
+                        <h2 class="item-title">@ViewBag.video.VideoName</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row gutters-50">
+            <div class="col-lg-12">
+                <div class="single-blog-box-layout1">
+                    <div class="blog-details">
+                        <iframe width="100%" height="621" src="@ViewBag.video.VideoUrl"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-12 sidebar-widget-area sidebar-break-md">
+                <div class="widget">
+                    <div class="section-heading heading-dark">
+                        <h3 class="item-heading">Danh sách Video khác trong khóa học </h3>
+                    </div>
+                    <div class="widget-latest">
+                        <div class="row gutters-50">
+                            @foreach (var item in ViewBag.list)
+                            {
+                                <div class="col-lg-6" style=" display: flex; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; margin-bottom: 20px;">
+                                    <div class="item-img" style="margin-right: 15px; margin-top: 5px; position: relative; overflow: hidden;">
+                                        <a href="#"><img src="~/Content/images/@ViewBag.course.Image" alt="Post" style="width :140px; height: 77px !important"></a>
+                                    </div>
+                                    <div class="item-content" style=" -webkit-box-flex: 1; -ms-flex: 1; flex: 1;">
+                                        <h4 class="item-title" style=" font-weight: 500; font-size: 16px; line-height: 1.5; margin-bottom: 0; color: #111111; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; ">
+                                            <a href="#" style="color: #111111;">
+                                                @item.VideoName
+                                            </a>
+                                            <br />
+                                            <a style="color: #111111;" href="/Course/Video/@item.CourseVideoId" class="item-btn"> Xem Video <i class="fas fa-play"></i></a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

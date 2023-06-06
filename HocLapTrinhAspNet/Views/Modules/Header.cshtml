@@ -4,7 +4,9 @@
     CourseTypeRepository courseTypeRepository = new CourseTypeRepository();
     List<CourseType> courseTypes = courseTypeRepository.Gets();
 }
-@{ var userInfomatiom = (HocLapTrinhAspNet.Models.User)Session["USER"]; }
+@{ var userInfomatiom = (HocLapTrinhAspNet.Models.User)Session["USER"];
+   }
+
 <header class="has-mobile-menu">
     <div id="header-middlebar" class="pt--29 pb--29 bg--light border-bootom border-color-accent2">
         <div class="container">
@@ -81,11 +83,12 @@
                               
                             @if (userInfomatiom != null)
                             {
+                                var fullName = new HocLapTrinhAspNet.Repositorys.UserRepository().GetUserById(userInfomatiom.UserId).FullName;
                                 <li>
-                                    <a href="#">@userInfomatiom.FullName</a>
+                                    <a href="#">@fullName</a>
                                     <ul class="dropdown-menu-col-1">
                                         <li>
-                                            <a href="/Authentication/Profiles">Hồ sơ</a>
+                                            <a href="/Authentication/ProfileUser">Hồ sơ</a>
                                         </li>
                                         <li>
                                             <a href="/Authentication/Logout">Đăng xuất</a>

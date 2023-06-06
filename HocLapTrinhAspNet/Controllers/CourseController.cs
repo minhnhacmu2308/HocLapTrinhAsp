@@ -19,6 +19,7 @@ namespace HocLapTrinhAspNet.Controllers
         CourseRepository courseRepository = new CourseRepository();
         CourseTypeRepository courseTypeRepository = new CourseTypeRepository();
         OrderRepository orderRepository = new OrderRepository();
+        CourseVideoRepository courseVideo = new CourseVideoRepository();
         // GET: Course
         public ActionResult Index(string isFree,int page)
         {
@@ -37,6 +38,14 @@ namespace HocLapTrinhAspNet.Controllers
         {
             ViewBag.course = courseRepository.GetCourseById(id);
             ViewBag.mess = mess;
+            return View();
+        }
+
+        public ActionResult Video(int id)
+        {
+            ViewBag.video = courseVideo.GetCourseVideoById(id);
+            ViewBag.course = courseRepository.GetCourseById(ViewBag.video.CourseId);
+            ViewBag.list = courseVideo.GetNotExist(id, ViewBag.video.CourseId);
             return View();
         }
 
@@ -91,7 +100,7 @@ namespace HocLapTrinhAspNet.Controllers
         public ActionResult PaymentMoMo(int courseId)
         {
             var obj = courseRepository.GetCourseById(courseId);
-            int total = Convert.ToInt32(obj.Price);
+            int total = 100000;
             string url = "https://localhost:44359/Course/ReturnUrl/" + courseId;
             //request params need to request to MoMo system
             string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";

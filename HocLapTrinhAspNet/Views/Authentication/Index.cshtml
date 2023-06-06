@@ -21,6 +21,20 @@
             })
         </script>
     }
+
+    if (ViewBag.Msg == "5")
+    {
+        <script>
+            swal({
+                title: 'Thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
     if (ViewBag.Msg == "2")
     {
         <script>
@@ -45,6 +59,20 @@
                 timer: 3000,
                 buttons: true,
                 type: 'error'
+            })
+        </script>
+    }
+
+    if (ViewBag.Msg == "4")
+    {
+        <script>
+            swal({
+                title: 'Vui lòng kiểm tra mail để lấy mật khẩu !',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
             })
         </script>
     }
@@ -102,8 +130,13 @@
                                 <div class="col-md-12 form-group">
                                     <input type="password" placeholder="Mật khẩu" class="form-control" name="Password" required="">
                                 </div>
-                                <div class="col-12 form-group">
+                                <div class="col-4 form-group">
                                     <button type="submit" class="item-btn">Đăng nhập</button>
+                                </div>
+                                <div class="col-3 form-group">
+                                </div>
+                                <div class="col-5 form-group">
+                                    <a href="/Authentication/ForgotPassword" class="item-btn">Quên mật khẩu</a>
                                 </div>
                             </div>
                             <div class="form-response"></div>

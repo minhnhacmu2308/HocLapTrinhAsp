@@ -35,7 +35,8 @@ namespace HocLapTrinhAspNet.Controllers.Admin
             User login = _userRepository.CheckLogin(user);
             if (login != null && login.RoleId == 1)
             {
-                Session.Add("ADMIN", user);
+                var userinfor = _userRepository.getUserByEmail(user.Email);
+                Session.Add("ADMIN", userinfor);
                 return RedirectToAction("Index", "AdminHome");
             }
             else

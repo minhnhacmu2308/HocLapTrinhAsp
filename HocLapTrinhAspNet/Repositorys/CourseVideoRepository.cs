@@ -15,6 +15,11 @@ namespace HocLapTrinhAspNet.Repositorys
         {
             return myDb.CourseVideos.Include(x => x.Course).OrderByDescending(x => x.CourseVideoId).ToList();
         }
+
+        public List<CourseVideo> GetNotExist(int id, int courseId)
+        {
+            return myDb.CourseVideos.Where(x => x.CourseVideoId != id && x.CourseId == courseId).ToList();
+        }
         public void AddCourseVideo(CourseVideo courseVideo)
         {
             myDb.CourseVideos.Add(courseVideo);

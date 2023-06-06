@@ -131,5 +131,10 @@ namespace HocLapTrinhAspNet.Repositorys
             }
             return count;
         }
+        public bool checkOrder(int userId, int courseId)
+        {
+            var result = myDb.Orders.Where(x => x.CourseId == courseId && x.UserId == userId).ToList();
+            return result.Any();
+        }
     }
 }

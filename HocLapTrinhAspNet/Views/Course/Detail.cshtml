@@ -19,31 +19,39 @@
         </script>
     </div>
 }
+@{ var userInfomatiom = (HocLapTrinhAspNet.Models.User)Session["USER"];
+}
 <section class="single-blog-wrap-layout1">
-    <div class="single-blog-banner-layout1">
-        <div class="banner-img">
-            <img src="~/Content/images/@ViewBag.course.Image" style="width:100% !important" alt="blog">
-        </div>
-        <div class="banner-content">
-            <div class="container">
-                <ul class="entry-meta meta-color-light2">
-                    <li><i class="fas fa-tag"></i>@ViewBag.course.CourseType.TypeName</li>
-                    @if (ViewBag.course.IsFree)
-                    {
-                        <li><i class="fas fa-calendar-alt"></i>Miễn phí </li>
-                    }
-                    else
-                    {
-                        <li><i class="fas fa-calendar-alt"></i>Có phí</li>
-                    }
 
-                    <li><i class="far fa-clock"></i>@ViewBag.course.CourseVideos.Count </li>
-                </ul>
-                <h2 class="item-title">@ViewBag.course.CourseName</h2>
+    <section class="single-blog-wrap-layout2">
+        <div class="container">
+            <div class="single-blog-box-layout2">
+                <div class="blog-banner">
+                    <img src="~/Content/images/@ViewBag.course.Image" alt="blog" style=" width: 100% !important; height: 450px !important;">
+                </div>
+                <div class="single-blog-content">
+                    <div class="blog-entry-content">
+                        <ul class="entry-meta meta-color-dark">
 
+                            <li><i class="fas fa-tag"></i>@ViewBag.course.CourseType.TypeName</li>
+                            @if (ViewBag.course.IsFree)
+                            {
+                                <li><i class="fas fa-calendar-alt"></i>Miễn phí </li>
+                            }
+                            else
+                            {
+
+                        <li><i class="fas fa-calendar-alt"></i>Có phí : @String.Format("{0:#,##0}", ViewBag.course.Price)</li>
+                            }
+
+                            <li><i class="far fa-clock"></i>@ViewBag.course.CourseVideos.Count </li>
+                        </ul>
+                        <h2 class="item-title">@ViewBag.course.CourseName</h2>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="container">
         <div class="row gutters-50">
             <div class="col-lg-8">
@@ -57,86 +65,78 @@
             <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
                 <div class="widget">
                     <div class="section-heading heading-dark">
-                        <h3 class="item-heading">Danh sách video </h3>
+                        <h3 class="item-heading">Danh sách Video </h3>
                     </div>
-                    <div class="widget-latest">
-                        <ul class="block-list">
-                            <li class="single-item">
-                                <div class="item-img">
-                                    <a href="#"><img src="~/Content/img/blog\blog85.jpg" alt="Post"></a>
-                                </div>
-                                <div class="item-content">
-                                    <ul class="entry-meta meta-color-dark">
-                                        <li><i class="fas fa-tag"></i>Weeding</li>
-                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                    @if (ViewBag.course.IsFree)
+                    {
+                        <div class="widget-latest">
+                            <ul class="block-list">
+                                @foreach (var item in ViewBag.course.CourseVideos)
+                                {
+                                    <li class="single-item">
+                                        <div class="item-img">
+                                            <a href="/Course/Video/@item.CourseVideoId"><img src="~/Content/images/@ViewBag.course.Image" alt="Post" style="width :140px; height: 77px !important"></a>
+                                        </div>
+                                        <div class="item-content">
+                                            <h4 class="item-title">
+                                                <a href="/Course/Video/@item.CourseVideoId">
+                                                    @item.VideoName
+                                                </a>
+                                                <br />
+                                            </h4>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        if (userInfomatiom == null)
+                        {
+                            <div style="margin-top:10px">
+                                <a class="btn" href="/Authentication/Index" style="display: inline-block; padding: 10px 20px; background-color: black; color: #FFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
+                                    Vui lòng đăng nhập để mua khóa học
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            var check = new HocLapTrinhAspNet.Repositorys.CourseRepository().checkOrder(userInfomatiom.UserId, ViewBag.course.CourseId);
+                            if (check)
+                            {
+                                <div class="widget-latest">
+                                    <ul class="block-list">
+                                        @foreach (var item in ViewBag.course.CourseVideos)
+                                        {
+                                            <li class="single-item">
+                                                <div class="item-img">
+                                                    <a href="/Course/Video/@item.CourseVideoId"><img src="~/Content/images/@ViewBag.course.Image" alt="Post" style="width :140px; height: 77px !important"></a>
+                                                </div>
+                                                <div class="item-content">
+                                                    <h4 class="item-title">
+                                                        <a href="/Course/Video/@item.CourseVideoId">
+                                                            @item.VideoName
+                                                        </a>
+                                                        <br />
+                                                    </h4>
+                                                </div>
+                                            </li>
+                                        }
                                     </ul>
-                                    <h4 class="item-title">
-                                        <a href="#">
-                                            Thought aful Living result are aert aos
-                                            Angeles
-                                        </a>
-                                    </h4>
                                 </div>
-                            </li>
-                            <li class="single-item">
-                                <div class="item-img">
-                                    <a href="#"><img src="~/Content/img/blog\blog86.jpg" alt="Post"></a>
+                            }
+                            else
+                            {
+                                <div style="margin-top:10px">
+                                    <a class="btn" href="/Course/PaymentMoMo/@ViewBag.course.CourseId" style="display: inline-block; padding: 10px 20px; background-color: black; color: #FFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
+                                        Mua khoá học
+                                    </a>
                                 </div>
-                                <div class="item-content">
-                                    <ul class="entry-meta meta-color-dark">
-                                        <li><i class="fas fa-tag"></i>Flower</li>
-                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
-                                    </ul>
-                                    <h4 class="item-title">
-                                        <a href="#">
-                                            Type designer Jeremy Tanka rdoverhauls
-                                            online
-                                        </a>
-                                    </h4>
-                                </div>
-                            </li>
-                            <li class="single-item">
-                                <div class="item-img">
-                                    <a href="#"><img src="~/Content/img/blog\blog87.jpg" alt="Post"></a>
-                                </div>
-                                <div class="item-content">
-                                    <ul class="entry-meta meta-color-dark">
-                                        <li><i class="fas fa-tag"></i>Stage</li>
-                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
-                                    </ul>
-                                    <h4 class="item-title">
-                                        <a href="#">
-                                            5 design things to look out for in June
-                                            2019
-                                        </a>
-                                    </h4>
-                                </div>
-                            </li>
-                            <li class="single-item">
-                                <div class="item-img">
-                                    <a href="#"><img src="~/Content/img/blog\blog88.jpg" alt="Post"></a>
-                                </div>
-                                <div class="item-content">
-                                    <ul class="entry-meta meta-color-dark">
-                                        <li><i class="fas fa-tag"></i>Life Style</li>
-                                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
-                                    </ul>
-                                    <h4 class="item-title">
-                                        <a href="#">
-                                            Marc Falzone opens £2 million UK Expo
-                                            Pavilion
-                                        </a>
-                                    </h4>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="margin-top:10px">
-                        <a class="btn" href="/Course/PaymentMoMo/@ViewBag.course.CourseId" style="display: inline-block; padding: 10px 20px; background-color: black; color: #FFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
-                            Mua khoá học
-                        </a>
-                    </div>
+                            }
 
+                        }
+                    }
                 </div>
 
             </div>

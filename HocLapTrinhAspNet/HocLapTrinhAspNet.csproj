@@ -1153,6 +1153,11 @@
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Course\SearchCourse.cshtml" />
     <Content Include="Views\Authentication\Index.cshtml" />
+    <Content Include="Views\Authentication\CheckOTP.cshtml" />
+    <Content Include="Views\Authentication\ForgotPassword.cshtml" />
+    <Content Include="Views\Authentication\ResetPassword.cshtml" />
+    <Content Include="Views\Authentication\ProfileUser.cshtml" />
+    <Content Include="Views\Course\Video.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

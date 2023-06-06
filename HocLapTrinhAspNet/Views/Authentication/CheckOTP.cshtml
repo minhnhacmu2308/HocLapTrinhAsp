@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "CheckOTP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.mess == "Success")
+{
+    <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 40PX;z-index: 2000;width: 300px">
+
+        <script>
+            swal({
+                title: 'Vui lòng xác thực OTP!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    </div>
+}
+
+@if (ViewBag.mess == "ErrorExist")
+{
+
+    <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 10PX;z-index: 2000;width: 300px">
+        <script>
+            swal({
+                title: 'Tên người dùng đã tồn tại!',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    </div>
+}
+@if (ViewBag.mess == "ErrorPassword")
+{
+
+    <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 10PX;z-index: 2000;width: 300px">
+        <script>
+            swal({
+                title: 'Hai mật khẩu không trùng khớp',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    </div>
+}
+
+@if (ViewBag.mess == "Error")
+{
+
+    <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 10PX;z-index: 2000;width: 300px">
+        <script>
+            swal({
+                title: 'Mã OTP không đúng',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        </script>
+    </div>
+}
+<section class="blog-wrap-layout9">
+    <div class="container">
+        <div class="section-heading-3">
+            <h2>Xác thực OTP</h2>
+        </div>
+        <div class="row gutters-50">
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <div class="single-blog-box-layout1">
+                    <div class="blog-form">
+                        <div class="section-heading-4 heading-dark">
+                            <h3 class="item-heading">Nhập mã OTP để xác thực đăng ký</h3>
+                        </div>
+                        <form class="contact-form-box" action="/Authentication/VerifyOTP" method="post">
+                            <div class="row gutters-15">
+                                <div class="col-md-12 form-group">
+                                    <input type="text" placeholder="Mã OTP" class="form-control" name="otp" required="">
+                                </div>
+                                <div class="col-12 form-group">
+                                    <button type="submit" class="item-btn">Xác thực</button>
+                                </div>
+                            </div>
+                            <div class="form-response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
+    </div>
+</section>
+
