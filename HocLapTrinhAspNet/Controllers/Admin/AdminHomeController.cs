@@ -21,7 +21,7 @@ namespace HocLapTrinhAspNet.Controllers.Admin
             }
             else
             {
-                return RedirectToAction("Index", "Course");
+                return RedirectToAction("Index", "AdminCourse");
             }
 
         }

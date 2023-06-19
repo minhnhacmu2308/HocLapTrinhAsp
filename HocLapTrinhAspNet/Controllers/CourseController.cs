@@ -100,14 +100,14 @@ namespace HocLapTrinhAspNet.Controllers
         public ActionResult PaymentMoMo(int courseId)
         {
             var obj = courseRepository.GetCourseById(courseId);
-            int total = 100000;
+            int total = Convert.ToInt32(obj.Price); ;
             string url = "https://localhost:44359/Course/ReturnUrl/" + courseId;
             //request params need to request to MoMo system
             string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
             string partnerCode = "MOMOOJOI20210710";
             string accessKey = "iPXneGmrJH0G8FOP";
             string serectkey = "sFcbSGRSJjwGxwhhcEktCHWYUuTuPNDB";
-            string orderInfo = "Thanh toán momo tại web";
+            string orderInfo = "Thanh toán mua khóa học";
             string returnUrl = url;
             string notifyurl = "http://ba1adf48beba.ngrok.io/Home/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
 
