@@ -159,13 +159,20 @@ namespace HocLapTrinhAspNet.Controllers
         public ActionResult ReturnUrl(int id)
         {
             User user = (User)Session["USER"];
-            orderRepository.AddOrder(new Order
+            string status = Request.QueryString["errorCode"];
+
+            if (status == "0")
             {
-                UserId = user.UserId,
-                CourseId = id,
-                OrderDate = DateTime.Now
-            });
-            return RedirectToAction("Detail","Course", new { id = id, mess = "2" });
+                // Thanh toán thành công
+                orderRepository.AddOrder(new Order
+                {
+                    UserId = user.UserId,
+                    CourseId = id,
+                    OrderDate = DateTime.Now
+                });
+                return RedirectToAction("Detail", "Course", new { id = id, mess = "2" });
+            }
+            return RedirectToAction("Detail", "Course", new { id = id, mess = "3" });
         }
 
         //Khi thanh toán xong ở cổng thanh toán Momo, Momo sẽ trả về một số thông tin, trong đó có errorCode để check thông tin thanh toán

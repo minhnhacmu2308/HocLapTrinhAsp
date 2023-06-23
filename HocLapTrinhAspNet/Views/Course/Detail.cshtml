@@ -19,6 +19,22 @@
         </script>
     </div>
 }
+@if (ViewBag.mess == "3")
+{
+    <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 40PX;z-index: 2000;width: 300px">
+
+        <script>
+            swal({
+                title: 'Mua khoá học thất bại!',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        </script>
+    </div>
+}
 @{ var userInfomatiom = (HocLapTrinhAspNet.Models.User)Session["USER"];
 }
 <section class="single-blog-wrap-layout1">
@@ -41,7 +57,7 @@
                             else
                             {
 
-                        <li><i class="fas fa-calendar-alt"></i>Có phí : @String.Format("{0:#,##0}", ViewBag.course.Price)</li>
+                                <li><i class="fas fa-calendar-alt"></i>Có phí : @String.Format("{0:#,##0}", ViewBag.course.Price)</li>
                             }
 
                             <li><i class="far fa-clock"></i>@ViewBag.course.CourseVideos.Count </li>
